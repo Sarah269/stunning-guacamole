@@ -5,3 +5,12 @@ Mini Game #1
 - If the user answers the question correctly, the program prints "correct!".
 - if the user answers the question incorrectly, the program prints "incorrect, the correct answer is <answer>"
 - At the end of the game, the program let's the user know how many questions were answered correctly.
+
+Guessing Game
+- Python guessing game
+- Player has two options:
+    - Player can guess the number computer selects
+    - Computer can guess the number the player selects
+      
+Banking Exercise 1
+- Banking exercise using object-oriented programming
