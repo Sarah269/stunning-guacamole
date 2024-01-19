@@ -1,6 +1,8 @@
 # Madlib
-### Madlib game where the player responds to prompts then reads the story created
+### Six madlib games where the player responds to prompts then reads the story created
 
-Madlib Game
+![Madlib 2]
+
+
 
 
