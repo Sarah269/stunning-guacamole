@@ -14,3 +14,6 @@ Guessing Game
       
 Banking Exercise 1
 - Banking exercise using object-oriented programming
+
+Madlib Game
+- Respond to the prompts then read the story created
