@@ -1,0 +1,39 @@
+# Calculate each user's average session time.  A session is defined as the
+# time diffference between a page_load and page_exit.  For simplicity, assume
+# a user has only 1 session per day and if there are multiple of the same 
+# events on that day, consider only the latest page_load and earliest
+# page_exit, with an obvious restriction that load time event should
+# happen before exit time event.  Output the user_id and their average 
+# session time.
+
+# Import your libraries
+import pandas as pd
+import datetime as dt
+
+# Start writing code
+facebook_web_log.head()
+
+# Separate date from timestamp
+facebook_web_log['date'] = facebook_web_log['timestamp'].dt.date
+facebook_web_log.head()
+
+# Page loads
+page_load = facebook_web_log.loc[facebook_web_log['action'] == 'page_load']
+
+# Maximum page_load for each user_id and date
+activity_start = page_load.groupby(['user_id', 'date'])['timestamp'].max().reset_index(name='session_st')
+
+# Page Exit
+page_exit = facebook_web_log.loc[facebook_web_log['action'] == 'page_exit']
+
+# Minimum page_exit for each user_id and date
+activity_end = page_exit.groupby(['user_id', 'date'])['timestamp'].min().reset_index(name='session_end')
+
+# Merge page_load and page_exit on user_id and date.  inner join
+session = pd.merge(activity_start,activity_end, on=['user_id', 'date'], how='inner')
+
+# Calculate the session length
+session['session_length'] = session['session_end'] - session['session_st']
+
+# Calculate the average session length per user_id
+session.groupby('user_id')['session_length'].mean()

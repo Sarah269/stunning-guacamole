@@ -1,0 +1,18 @@
+# Calculate the total revenue from each customer in March 2019
+# Include only customers who were active in March 2019
+# Output the revenue along with the customer id and sort the results
+# based on the revenue in descending order.
+
+
+# Import your libraries
+import pandas as pd
+import datetime
+
+# Start writing code
+#orders.head()
+orders["year_month"] = orders["order_date"].dt.strftime('%Y-%m')
+orders.head()
+
+march2019 = orders[orders["year_month"] == "2019-03"].drop(columns=["id", "order_date", "order_details"])
+
+march2019.groupby("cust_id")["total_order_cost"].sum()

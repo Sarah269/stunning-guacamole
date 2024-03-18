@@ -1,0 +1,28 @@
+
+# Write a query that'll identify returning active users. A returning active user is
+# a user that has made a second purchase within 7 days of any other of their purchases.
+# Output a list of user_ids of these returning active users.
+
+
+# Import your libraries
+import pandas as pd
+from datetime import datetime
+import numpy as np
+
+# Start writing code
+amazon_transactions.head()
+
+# Sort by user_id and created_at
+amazon_trans = amazon_transactions.sort_values(['user_id','created_at'])
+
+#Lag created_at
+amazon_trans['lag_created_at'] = amazon_trans.groupby(['user_id'])['created_at'].shift(1)
+
+# Calculate difference between dates in days
+amazon_trans['time_between_purchase']= (amazon_trans['created_at'] - amazon_trans['lag_created_at'])/np.timedelta64(1, 'D')
+
+# filter on time_between_purchase within 7 days
+active = amazon_trans[amazon_trans['time_between_purchase'] <= 7]
+
+# List user_ids of returning active users
+active['user_id'].unique()
