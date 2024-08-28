@@ -17,3 +17,16 @@ Banking Exercise 1
 
 Madlib Game
 - Respond to the prompts then read the story created
+
+Hangman
+- Player can guess the word
+- Player gets six lives
+
+Rock, Paper, Scissors
+- Play rock, paper, scissors with the computer
+
+TicTacToe
+- Play TicTacToe with the computer
+
+Binary Search
+- Which is faster naive search or binary search?
