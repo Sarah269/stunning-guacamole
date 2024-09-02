@@ -30,3 +30,9 @@ TicTacToe
 
 Binary Search
 - Which is faster naive search or binary search?
+
+Minesweeper
+- Can you navigate the board without hitting a bomb?
+
+Sudoku
+- Computer solves a sudoku puzzle
