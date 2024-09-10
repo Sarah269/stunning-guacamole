@@ -1,0 +1,27 @@
+# Leetcode 525
+# Contiguous Array
+# Given a binary array nums, return the maximu lenght of 
+# a contiguous subarray with an equal number of 0 and 1.
+
+
+class Solution(object):
+    def findMaxLength(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        
+        # dictionary to hold index of count
+        dict = {}
+        dict[0] = -1
+
+        ans = 0
+        count = 0
+
+        for i, num in enumerate(nums):
+            count += 1 if num else -1
+            if count in dict:
+               ans = max(ans, i-dict[count])
+            else:
+                dict[count] = i
+        return ans

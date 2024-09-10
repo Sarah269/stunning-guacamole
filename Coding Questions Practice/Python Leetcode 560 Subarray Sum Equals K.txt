@@ -1,0 +1,33 @@
+# Leetcode 560
+# Subarray Sum Equals K
+# Given an array of integers nums and an integer k, return the total
+# numbers of subarrays whose sum equals to k
+
+
+class Solution(object):
+    def subarraySum(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
+        if not nums:
+            return 0
+        
+        # initialize a dictionary 
+        # to track how many times prefix_sum - k was seen
+
+        sums_dict = collections.defaultdict(int)
+        sums_dict[0] = 1
+
+        prefix_sum = res = 0
+
+        for num in nums:
+            prefix_sum += num
+
+            if prefix_sum - k in sums_dict:
+                res += sums_dict[prefix_sum - k]
+            
+            sums_dict[prefix_sum] +=1
+    
+        return res
