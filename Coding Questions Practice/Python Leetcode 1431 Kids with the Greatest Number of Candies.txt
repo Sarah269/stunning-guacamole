@@ -1,0 +1,21 @@
+# Leetcode 1431
+# Kids With the Greatest Number of Candies
+# Return a boolean array
+# True if the kid will have the most candies among all kids
+# False if otherwise
+
+class Solution:
+    def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List[bool]:
+        self.candies = candies
+        self.extraCandies = extraCandies
+        max_candies = max(candies)
+        
+        most_candies = []
+        for i in range(len(self.candies)):
+            
+            if self.candies[i] + self.extraCandies >= max_candies:
+                most_candies.append(True)
+            else:
+                most_candies.append(False)
+                
+        return most_candies
