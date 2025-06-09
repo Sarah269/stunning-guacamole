@@ -1,4 +1,4 @@
-# ToDo List FLASK REST API
+# Simple ToDo List FLASK REST API
 
 ## Project
 Create a REST API using FLASK.  This API will handle todo list items. The API will create, retrieve, update, and delete todo list items data. The todo list items will be stored in memory.  Each todo item is assigned a numerical id.
